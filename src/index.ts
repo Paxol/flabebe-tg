@@ -27,7 +27,6 @@ bot.on('text', async ctx => {
       const result = await dal.createLink(url);
       
 			if (!result.success || !result.content) {
-        // TODO: check
 				let msg = "❌ An error occurred";
 
 				if (!result.success) msg += `: ${result.error.message}`;
@@ -40,7 +39,7 @@ bot.on('text', async ctx => {
 			}
 
 			const slug = result.content.slug;
-			ctx.reply(`✅ Short link to ${url}:\nhttps://mpxl.dev/${slug}`);
+			ctx.reply(`✅ Short link to ${url}:\n\nhttps://mpxl.dev/${slug}`);
 		} catch (err) {
 			console.log(err);
 
